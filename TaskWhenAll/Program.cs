@@ -1,10 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-//await MakeBreakFast();
+await MakeBreakFast();
+await MakeBreakFast2();
 
-
-//async Task MakeBreakFast() 
-//{
+async Task MakeBreakFast()
+{
     Egg egg = new Egg();
     Chicken chicken = new Chicken();
 
@@ -36,7 +36,33 @@
     Console.WriteLine("Time taken for all tasks : {0}", endTime - startTime);
 
     Console.ReadKey();
-//}
+}
+
+async Task MakeBreakFast2()
+{
+    Egg egg = new Egg();
+    Chicken chicken = new Chicken();
+
+    Console.WriteLine("Beginning the process...");
+
+    var startTime = DateTime.Now;
+
+    Console.WriteLine("Frying eggs..");
+    await egg.FryEggs(10);
+    Console.WriteLine("Eggs are fried..!!");
+
+    Console.WriteLine("Frying chicken pieces..");
+    await chicken.FryChicken(10);
+    Console.WriteLine("Chicken pieces are fried..!!");
+
+    var endTime = DateTime.Now;
+
+    Console.WriteLine("Time taken for all tasks : {0}", endTime - startTime);
+
+    Console.ReadKey();
+}
+
+
 class Egg
 {
     public async Task FryEggs(int noOfEggs)
